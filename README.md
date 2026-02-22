@@ -1,1 +1,141 @@
-# gigi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Gigi 💙</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #a2d2ff, #bde0fe, #cde7ff);
+    text-align: center;
+    color: #0d3b66;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin-top: 120px;
+    font-size: 3em;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1em;
+    border: none;
+    border-radius: 30px;
+    background: #0d3b66;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+}
+
+button:hover {
+    background: #1e6091;
+    transform: scale(1.1);
+}
+
+#surprise {
+    display: none;
+    margin-top: 60px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+video {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* HEART STYLE */
+.heart {
+    position: fixed;
+    font-size: 20px;
+    animation: floatUp 3s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="firstPage">
+    <h1>🎉 Happy Birthday, Gigi 💙</h1>
+    <button onclick="showSurprise()">Open Your Surprise 🎁</button>
+</div>
+
+<div id="surprise">
+    <p>
+         Today is your big day, I hope you're feeling great! Thank you gigi for being in my life since 2022, <br> 
+        you have changed every aspect in my life. You are the love of my life and my soulmate,<br>
+        no one will ever change my mind on that. You're the greatest memory of my life and <br>
+        I hope I can make a lot of memories with you in the future. You deserve the best in the world! <br>
+        ~ From your kao!
+    </p>
+
+    <video controls>
+        <source src="c:\Users\Asus\Desktop\gigi.mov" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <br>
+    <button onclick="goBack()">⬅ Back</button>
+</div>
+
+<script>
+function showSurprise() {
+    document.getElementById("firstPage").style.display = "none";
+    document.getElementById("surprise").style.display = "block";
+    startHearts();
+}
+
+function goBack() {
+    document.getElementById("surprise").style.display = "none";
+    document.getElementById("firstPage").style.display = "block";
+}
+
+function startHearts() {
+    let duration = 4000; // hearts for 4 seconds
+    let interval = setInterval(createHeart, 200);
+
+    setTimeout(() => {
+        clearInterval(interval);
+    }, duration);
+}
+
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💙";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "80vh";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 3000);
+}
+</script>
+
+</body>
+</html>
